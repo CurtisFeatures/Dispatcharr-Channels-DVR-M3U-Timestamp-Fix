@@ -2,6 +2,16 @@
 
 > **Workaround** — Adds `tvc-stream-timestamps="rewrite"` to M3U entries so Channels DVR can correctly record IPTV streams from Dispatcharr.
 
+> ## ⚠️ Replaced by a Dispatcharr plugin
+>
+> This script has been replaced by the **[M3U Stream Tag plugin](https://github.com/CurtisFeatures/Dispatcharr_m3u_stream_tag)**. The plugin runs inside Dispatcharr and adds
+> the tag to its M3U output directly, so you no longer need this script, a cron job or a file server in between.
+> Point Channels DVR straight at your Dispatcharr playlist addresses.
+>
+> **➡️ [Get the plugin](https://github.com/CurtisFeatures/Dispatcharr_m3u_stream_tag)**
+>
+> This repository is kept for reference and is no longer being developed.
+
 ---
 
 ## The Problem
@@ -10,7 +20,7 @@ When using [Dispatcharr](https://github.com/Dispatcharr/Dispatcharr) as an IPTV 
 
 Channels DVR supports a per-stream tag — `tvc-stream-timestamps="rewrite"` — that instructs it to rewrite timestamps on ingest, fixing the issue. Dispatcharr does not currently expose a way to inject this tag into its M3U output.
 
-This script bridges that gap until native support is added to Dispatcharr.
+This script bridged that gap. It has now been replaced by the [M3U Stream Tag plugin](https://github.com/CurtisFeatures/Dispatcharr_m3u_stream_tag), which does the same job inside Dispatcharr.
 
 ---
 
@@ -171,15 +181,17 @@ The tag tells Channels DVR to rewrite stream timestamps on ingest rather than tr
 - [x] Multi-playlist support
 - [x] Auto-naming from URL path
 - [x] LAN-only Caddy serving
-- [ ] ⏳ Awaiting native `tvc-stream-timestamps` support in Dispatcharr
+- [x] Replaced by the [M3U Stream Tag plugin](https://github.com/CurtisFeatures/Dispatcharr_m3u_stream_tag) for Dispatcharr
+- [ ] Native `tvc-stream-timestamps` support in Dispatcharr (not yet; the plugin covers this until then)
 
-Once Dispatcharr adds this tag natively to its M3U output, this workaround will no longer be needed and you can point Channels DVR back at Dispatcharr directly.
+If you use the plugin you don't need this script. Point Channels DVR at your Dispatcharr playlist addresses directly.
 
 
 ---
 
 ## Related
 
+- [M3U Stream Tag plugin](https://github.com/CurtisFeatures/Dispatcharr_m3u_stream_tag) — the Dispatcharr plugin that replaces this script
 - [Dispatcharr](https://github.com/Dispatcharr/Dispatcharr) — the IPTV playlist manager this works around
 - [Channels DVR](https://getchannels.com/) — the DVR software consuming these playlists
 - [tvc-stream-timestamps documentation](https://community.getchannels.com) — Channels DVR community docs
